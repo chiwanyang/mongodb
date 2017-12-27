@@ -1,0 +1,194 @@
+一部分：数组查询
+1.
+db.inventory.insertMany( [
+   { item: "journal", instock: [ { warehouse: "A", qty: 5 }, { warehouse: "C", qty: 15 } ] },
+   { item: "notebook", instock: [ { warehouse: "C", qty: 5 } ] },
+   { item: "paper", instock: [ { warehouse: "A", qty: 60 }, { warehouse: "B", qty: 15 } ] },
+   { item: "planner", instock: [ { warehouse: "A", qty: 40 }, { warehouse: "B", qty: 5 } ] },
+   { item: "postcard", instock: [ { warehouse: "B", qty: 15 }, { warehouse: "C", qty: 35 } ] }
+]);
+2.
+db.inventory.find( { "instock": { warehouse: "A", qty: 5 } } )
+顺序敏感
+db.inventory.find( { "instock": { qty: 5, warehouse: "A" } } )
+3.数组查询，小于等于
+db.inventory.find( { 'instock.0.qty': { $lte: 20 } } )
+4.查询只要有一个instock下qty元素满足
+db.inventory.find( { 'instock.qty': { $lte: 20 } } )
+5.$elemMatch，至少一个满足
+db.inventory.find( { "instock": { $elemMatch: { qty: 5, warehouse: "A" } } } )  elemMatch代表同一个数组元素，不支持视图
+db.inventory.find( { "instock.qty": 5, "instock.warehouse": "A" } )   可以不是同一个数组元素
+
+
+二部分，查询结果项
+db.inventory.insertMany( [
+  { item: "journal", status: "A", size: { h: 14, w: 21, uom: "cm" }, instock: [ { warehouse: "A", qty: 5 } ] },
+  { item: "notebook", status: "A",  size: { h: 8.5, w: 11, uom: "in" }, instock: [ { warehouse: "C", qty: 5 } ] },
+  { item: "paper", status: "D", size: { h: 8.5, w: 11, uom: "in" }, instock: [ { warehouse: "A", qty: 60 } ] },
+  { item: "planner", status: "D", size: { h: 22.85, w: 30, uom: "cm" }, instock: [ { warehouse: "A", qty: 40 } ] },
+  { item: "postcard", status: "A", size: { h: 10, w: 15.25, uom: "cm" }, instock: [ { warehouse: "B", qty: 15 }, { warehouse: "C", qty: 35 } ] }
+]);
+
+db.inventory.find( { status: "A" }, { item: 1, status: 1 } ),_id默认会有
+
+db.inventory.find( { status: "A" }, { item: 1, status: 1, _id: 0 } ) 显示去掉_id
+
+
+db.inventory.find( { status: "A" }, { status: 0, instock: 0 } )  除去这两项，其他的都显示
+
+db.inventory.find(
+   { status: "A" },
+   { "size.uom": 0 }
+)   除去嵌入文档中的特定字段
+
+db.inventory.find( { status: "A" }, { name: 1, status: 1, instock: { $slice: -1 } } )  slice数组的个数，1正数一个，4，正数4个个，-1倒是一个
+
+
+三部分  null处理
+db.inventory.insertMany([
+   { _id: 1, item: null },
+   { _id: 2 }
+])
+
+db.inventory.find( { item: null } )  没有这个field，或是插入值为null
+db.inventory.find( { item : { $type: 10 } } )  查询插入值时null
+db.inventory.find( { item : { $exists: false } } ) 查询没有这个field
+type值参考表：
+Double	1	“double”	 
+String	2	“string”	 
+Object	3	“object”	 
+Array	4	“array”	 
+Binary data	5	“binData”	 
+Undefined	6	“undefined”	Deprecated.
+ObjectId	7	“objectId”	 
+Boolean	8	“bool”	 
+Date	9	“date”	 
+Null	10	“null”	 
+Regular Expression	11	“regex”	 
+DBPointer	12	“dbPointer”	Deprecated.
+JavaScript	13	“javascript”	 
+Symbol	14	“symbol”	Deprecated.
+JavaScript (with scope)	15	“javascriptWithScope”	 
+32-bit integer	16	“int”	 
+Timestamp	17	“timestamp”	 
+64-bit integer	18	“long”	 
+Decimal128	19	“decimal”	New in version 3.4.
+Min key	-1	“minKey”	 
+Max key	127	“maxKey”	 
+
+
+四部分： 更新
+db.inventory.insertMany( [
+   { item: "canvas", qty: 100, size: { h: 28, w: 35.5, uom: "cm" }, status: "A" },
+   { item: "journal", qty: 25, size: { h: 14, w: 21, uom: "cm" }, status: "A" },
+   { item: "mat", qty: 85, size: { h: 27.9, w: 35.5, uom: "cm" }, status: "A" },
+   { item: "mousepad", qty: 25, size: { h: 19, w: 22.85, uom: "cm" }, status: "P" },
+   { item: "notebook", qty: 50, size: { h: 8.5, w: 11, uom: "in" }, status: "P" },
+   { item: "paper", qty: 100, size: { h: 8.5, w: 11, uom: "in" }, status: "D" },
+   { item: "planner", qty: 75, size: { h: 22.85, w: 30, uom: "cm" }, status: "D" },
+   { item: "postcard", qty: 45, size: { h: 10, w: 15.25, uom: "cm" }, status: "A" },
+   { item: "sketchbook", qty: 80, size: { h: 14, w: 21, uom: "cm" }, status: "A" },
+   { item: "sketch pad", qty: 95, size: { h: 22.85, w: 30.5, uom: "cm" }, status: "A" }
+]);
+
+db.inventory.updateOne(
+   { item: "paper" },
+   {
+     $set: { "size.uom": "cm", status: "P" },
+     $currentDate: { lastModified: true }
+   }
+)  查找第一个item等于paper的document，设置值，若lastModified没有，就新增，有就修改
+
+db.inventory.updateMany(
+   { "qty": { $lt: 50 } },
+   {
+     $set: { "size.uom": "in", status: "P",name:"chi" },
+     $currentDate: { lastModified: true }
+   }
+)
+
+替换，除了_id字段，
+db.inventory.replaceOne(
+   { item: "paper" },
+   { item: "paper", instock: [ { warehouse: "A", qty: 60 }, { warehouse: "B", qty: 40 } ] }
+)
+
+五部分：删除
+db.inventory.insertMany( [
+   { item: "journal", qty: 25, size: { h: 14, w: 21, uom: "cm" }, status: "A" },
+   { item: "notebook", qty: 50, size: { h: 8.5, w: 11, uom: "in" }, status: "P" },
+   { item: "paper", qty: 100, size: { h: 8.5, w: 11, uom: "in" }, status: "D" },
+   { item: "planner", qty: 75, size: { h: 22.85, w: 30, uom: "cm" }, status: "D" },
+   { item: "postcard", qty: 45, size: { h: 10, w: 15.25, uom: "cm" }, status: "A" },
+]);
+
+1.删除全部：
+db.inventory.deleteMany({})
+
+2.批量删除
+db.inventory.deleteMany({ status : "A" }) 
+
+3.删除一个
+db.inventory.deleteOne( { status: "D" } )
+
+
+六部分：mysql mongodb 对照表
+SQL Terms/Concepts			MongoDB Terms/Concepts
+database					database
+table						collection
+row							document or BSON document
+column						field
+index						index
+table joins					$lookup，embedded documents
+primary key					primary key:_id
+
+MongoDB		MySQL	
+mongod		mysqld	
+mongo		mysql	
+
+创建表
+CREATE TABLE people (						
+    id MEDIUMINT NOT NULL
+        AUTO_INCREMENT,
+    user_id Varchar(30),
+    age Number,
+    status char(1),
+    PRIMARY KEY (id)
+)
+
+db.people.insertOne( {
+    user_id: "abc123",
+    age: 55,
+    status: "A"
+ } )
+或：
+db.createCollection("people")
+
+修改表字段
+ALTER TABLE people
+ADD join_date DATETIME
+
+db.people.updateMany(
+    { },
+    { $set: { join_date: new Date() } }
+)
+
+ALTER TABLE people
+DROP COLUMN join_date
+
+db.people.updateMany(
+    { },
+    { $set: { join_date: new Date() } }
+)
+
+创建索引
+CREATE INDEX idx_user_id_asc
+ON people(user_id)
+
+db.people.createIndex( { user_id: 1 } )
+
+删除表
+DROP TABLE people
+
+db.people.drop()
+

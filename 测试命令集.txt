@@ -1,0 +1,68 @@
+1.启动服务器--------1
+	bin/mongod -dbpath ./data/newTestDB1 -logpath=./data/log/newTestDB1log.txt  -port 28010 --fork --logappend
+2.启动客户端
+	bin/mongo -port 28010
+3.插入1000条数据：
+	for(i=0;i<10000;i++){	db.school.insert({name:"chi"+i,age:i});	}
+	test数据库性能数据（MB）："objects" : 10004,"avgObjSize" : 111.98080767692923,"dataSize" : 1,"storageSize" : 2,"numExtents" : 7,
+									"indexes" : 1,"indexSize" : 0,"fileSize" : 64,"nsSizeMB" : 16,
+	school集合性能数据（MB）: "count" : 10000,"size" : 1,"avgObjSize" : 112,"storageSize" : 2,"numExtents" : 5,
+        "nindexes" : 1,"lastExtentSize" : 2,"paddingFactor" : 1,"systemFlags" : 1,"userFlags" : 1,"totalIndexSize" : 0,
+        "indexSizes" : {
+                "_id_" : 0
+        },
+> db.school.$_id_.stats(1024)
+{
+        "ns" : "test.school.$_id_",
+        "count" : 1367,
+        "size" : 10914,
+        "avgObjSize" : 8176,
+        "storageSize" : 21940,
+        "numExtents" : 5,
+        "nindexes" : 0,
+        "lastExtentSize" : 11060,
+        "paddingFactor" : 1,
+        "systemFlags" : 0,
+        "userFlags" : 0,
+        "totalIndexSize" : 0,
+        "indexSizes" : {
+
+        },
+        "ok" : 1
+}
+> db.school.stats(1024)
+{
+        "ns" : "test.school",
+        "count" : 344000,
+        "size" : 37625,
+        "avgObjSize" : 112,
+        "storageSize" : 57072,
+        "numExtents" : 9,
+        "nindexes" : 1,
+        "lastExtentSize" : 20160,
+        "paddingFactor" : 1,
+        "systemFlags" : 1,
+        "userFlags" : 1,
+        "totalIndexSize" : 10914,
+        "indexSizes" : {
+                "_id_" : 10914
+       },
+        "ok" : 1
+}
+> 
+导出为json格式：bin/mongoexport -port 28010 -d test -c school -o ./data/export/test15.dat            192--40.51,448--117.86
+导出为cvs格式：bin/mongoexport -port 28010 -d test -c school -csv -f name,age,height,width -o ./data/export/test15.csv       192--11.64,,448--34.44
+备份：bin/mongodump -port 28010 -d test -c school -o ./data/backup/test/3                192-----27.78,448--80.48
+
+
+在记录数为994000的时候，总dataSize为： 145590，总storageSize为207512，备份为：448--80.48；导出json为448--117.86；导出csv为448--34.44
+在记录数为2002229的时候，总dataSize为：282444，总storageSize为412276，备份为：448--162.72；导出json为448--179.53(240.53)；导出csv为448--71.72
+在记录数为2302229的时候，总dataSize为：324759，总storageSize为412276，备份为：448--187.22；导出json为448--276.73；导出csv为448--82.92
+在记录数为2602229的时候，总dataSize为：367080，总storageSize为412276，备份为：448--211.71；导出json为448--312.51；导出csv为448--94.12
+
+在记录数为2902229的时候，总dataSize为：409403，总storageSize为557M，备份为：960--236.21,5s；导出json为960--348.88,112s；导出csv为960--105.32,67s
+	
+在记录数为2902229的时候，总dataSize为：409403，总storageSize为557M，执行compact命令后，总dataSize为：409403，总storageSize为530M，备份为：960--236.21,5s；导出json为960--348.88,112s；导出csv为960--105.32,67s
+在记录数为2902229的时候,备份恢复时间为215秒，导入json格式为220s,导入csv格式为243s,导入后的stats各个属性，和导出前属性一样。
+
+journalLatencyTest

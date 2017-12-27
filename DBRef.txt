@@ -1,0 +1,23 @@
+DBRef
+
+db.type.insert({
+    "_id" : ObjectId("000000000000000000000001"),
+    "name" : "告警",
+    "value" : 1,
+    "status" : 1,
+    "gmt_create" : ISODate("2017-08-17T05:39:57.996Z"),
+})
+
+db.template.insert({
+    "_id" : ObjectId("000000000000000000000001"),
+    "name" : "离线告警",
+    "value" : 1,
+    "content" : "{{carNo}}的{{showName}}设备已离线{{offline}}天，请注意观察",
+    "instance" : "津A78788的zhd-57882设备已离线3天，请注意观察",
+    "gmt_create" : ISODate("2017-08-17T05:39:58.000Z"),
+    "msgType" : {
+        "$ref" : "msg_type",
+        "$id" : ObjectId("000000000000000000000001")
+    }
+});
+

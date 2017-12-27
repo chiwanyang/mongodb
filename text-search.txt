@@ -1,0 +1,24 @@
+db.stores.insert(
+   [
+     { _id: 1, name: "Java Hut", description: "Coffee and cakes" },
+     { _id: 2, name: "Burger Buns", description: "Gourmet hamburgers" },
+     { _id: 3, name: "Coffee Shop", description: "Just coffee" },
+     { _id: 4, name: "Clothes Clothes Clothes", description: "Discount clothing" },
+     { _id: 5, name: "Java Shopping", description: "Indonesian goods" }
+   ]
+)
+ 
+db.stores.insert({ _id: 10, name: "赵日天", description: "吊炸天,非常厉害" })    db.stores.find( { $text: { $search: "赵日天" } } )
+
+db.stores.createIndex( { name: "text", description: "text" } ),必须是字符串或数组元素为字符串，只能有一个text索引，但是可以包含多个字段；2.6版本不支持中文，3.4版本支持，中文不会自动分词
+
+db.stores.find( { $text: { $search: "java coffee shop" } } )
+
+db.stores.find( { $text: { $search: "java \"coffee shop\"" } } )  查找特定字符串，\	\
+
+db.stores.find( { $text: { $search: "java shop -coffee" } } )		排除某个字符串
+
+db.stores.find(
+   { $text: { $search: "java coffee shop" } },
+   { score: { $meta: "textScore" } }
+).sort( { score: { $meta: "textScore" } } )			按照匹配度排序，必须显示的投影到字段textScore

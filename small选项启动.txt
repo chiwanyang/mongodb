@@ -1,0 +1,830 @@
+SSH Secure Shell 3.2.9 (Build 283)
+Copyright (c) 2000-2003 SSH Communications Security Corp - http://www.ssh.com/
+
+This copy of SSH Secure Shell is a non-commercial version.
+This version does not include PKI and PKCS #11 functionality.
+
+
+Last login: Tue Sep  9 12:56:52 2014 from 10.8.8.247
+[v8bs@localhost ~]$ ps -ef|grep mongod
+v8bs     26609 26565  0 07:07 pts/0    00:00:00 grep mongod
+[v8bs@localhost ~]$ cd mongo
+You have new mail in /var/spool/mail/v8bs
+[v8bs@localhost mongo]$ cd mongodb-linux-x86_64-2.6.4
+[v8bs@localhost mongodb-linux-x86_64-2.6.4]$ bin/mongod -dbpath ./data/db -logpath=./data/log/20140910log.txt -smallfiles -port 28010 --fork --logappend
+about to fork child process, waiting until server is ready for connections.
+forked process: 26795
+child process started successfully, parent exiting
+You have new mail in /var/spool/mail/v8bs
+[v8bs@localhost mongodb-linux-x86_64-2.6.4]$ bin/mongod -dbpath ./data/testDB -logpath=./data/log/20140910log.txt -smallfiles -port 28010 --fork --logappend
+about to fork child process, waiting until server is ready for connections.
+forked process: 26982
+child process started successfully, parent exiting
+You have new mail in /var/spool/mail/v8bs
+[v8bs@localhost mongodb-linux-x86_64-2.6.4]$  bin/mongod -dbpath ./data/testDB2 -logpath=./data/log/20140911log.txt -smallfiles -port 28010 --fork --logappend
+about to fork child process, waiting until server is ready for connections.
+forked process: 26995
+child process started successfully, parent exiting
+[v8bs@localhost mongodb-linux-x86_64-2.6.4]$  bin/mongod -dbpath ./data/testDB -logpath=./data/log/20140910log.txt -smallfiles -port 28011 --fork --logappend
+about to fork child process, waiting until server is ready for connections.
+forked process: 27064
+ERROR: child process failed, exited with error number 100
+You have new mail in /var/spool/mail/v8bs
+[v8bs@localhost mongodb-linux-x86_64-2.6.4]$  bin/mongod -dbpath ./data/testDB -logpath=./data/log/20140910log.txt -smallfiles -port 28010 --fork --logappend
+about to fork child process, waiting until server is ready for connections.
+forked process: 27137
+child process started successfully, parent exiting
+You have new mail in /var/spool/mail/v8bs
+[v8bs@localhost mongodb-linux-x86_64-2.6.4]$ bin/mongod -dbpath ./data/testDB2 -logpath=./data/log/20140911log.txt -smallfiles -port 28011 --fork --logappend
+about to fork child process, waiting until server is ready for connections.
+forked process: 27150
+child process started successfully, parent exiting
+[v8bs@localhost mongodb-linux-x86_64-2.6.4]$ bin/mongorestore -d companyDB ./data/backup/dump/uc -port 28010
+connected to: 127.0.0.1:28010
+2014-09-10T07:15:59.915+0800 ./data/backup/dump/uc/shareforder.files.bson
+2014-09-10T07:15:59.916+0800    going into namespace [companyDB.shareforder.files]
+94 objects found
+2014-09-10T07:15:59.939+0800    Creating index: { key: { _id: 1 }, ns: "companyDB.shareforder.files", name: "_id_" }
+2014-09-10T07:16:00.576+0800    Creating index: { key: { filename: 1, uploadDate: 1 }, ns: "companyDB.shareforder.files", name: "filename_1_uploadDate_1" }
+2014-09-10T07:16:00.578+0800 ./data/backup/dump/uc/pmailreply.bson
+2014-09-10T07:16:00.578+0800    going into namespace [companyDB.pmailreply]
+14 objects found
+2014-09-10T07:16:00.588+0800    Creating index: { key: { _id: 1 }, ns: "companyDB.pmailreply", name: "_id_" }
+2014-09-10T07:16:00.589+0800 ./data/backup/dump/uc/message.bson
+2014-09-10T07:16:00.589+0800    going into namespace [companyDB.message]
+2014-09-10T07:16:03.093+0800            Progress: 8299862/455811084     1%     (bytes)
+2014-09-10T07:16:06.073+0800            Progress: 18327797/455811084    4%     (bytes)
+2014-09-10T07:16:09.040+0800            Progress: 31249708/455811084    6%     (bytes)
+2014-09-10T07:16:12.051+0800            Progress: 43201388/455811084    9%     (bytes)
+2014-09-10T07:16:15.027+0800            Progress: 55717716/455811084    12%    (bytes)
+2014-09-10T07:16:18.006+0800            Progress: 62660200/455811084    13%    (bytes)
+2014-09-10T07:16:21.054+0800            Progress: 75207772/455811084    16%    (bytes)
+2014-09-10T07:16:24.009+0800            Progress: 87087424/455811084    19%    (bytes)
+2014-09-10T07:16:27.033+0800            Progress: 98090011/455811084    21%    (bytes)
+2014-09-10T07:16:30.047+0800            Progress: 110705188/455811084   24%    (bytes)
+2014-09-10T07:16:35.829+0800            Progress: 118641188/455811084   26%    (bytes)
+2014-09-10T07:16:38.035+0800            Progress: 127535808/455811084   27%    (bytes)
+2014-09-10T07:16:41.033+0800            Progress: 140124429/455811084   30%    (bytes)
+2014-09-10T07:16:44.049+0800            Progress: 153080562/455811084   33%    (bytes)
+2014-09-10T07:16:47.042+0800            Progress: 165694295/455811084   36%    (bytes)
+2014-09-10T07:16:50.014+0800            Progress: 177962699/455811084   39%    (bytes)
+2014-09-10T07:16:53.058+0800            Progress: 190235692/455811084   41%    (bytes)
+2014-09-10T07:16:56.040+0800            Progress: 202164127/455811084   44%    (bytes)
+2014-09-10T07:16:59.008+0800            Progress: 214051578/455811084   46%    (bytes)
+2014-09-10T07:17:02.033+0800            Progress: 226233321/455811084   49%    (bytes)
+2014-09-10T07:17:06.302+0800            Progress: 226901002/455811084   49%    (bytes)
+2014-09-10T07:17:09.022+0800            Progress: 237474442/455811084   52%    (bytes)
+2014-09-10T07:17:12.004+0800            Progress: 249002150/455811084   54%    (bytes)
+2014-09-10T07:17:15.018+0800            Progress: 261582596/455811084   57%    (bytes)
+2014-09-10T07:17:18.002+0800            Progress: 273460050/455811084   59%    (bytes)
+2014-09-10T07:17:21.000+0800            Progress: 285542336/455811084   62%    (bytes)
+2014-09-10T07:17:24.005+0800            Progress: 296888405/455811084   65%    (bytes)
+2014-09-10T07:17:27.025+0800            Progress: 307708480/455811084   67%    (bytes)
+2014-09-10T07:17:30.018+0800            Progress: 320015439/455811084   70%    (bytes)
+2014-09-10T07:17:33.041+0800            Progress: 331931061/455811084   72%    (bytes)
+2014-09-10T07:17:36.006+0800            Progress: 343812952/455811084   75%    (bytes)
+2014-09-10T07:17:39.018+0800            Progress: 355391089/455811084   77%    (bytes)
+2014-09-10T07:17:42.011+0800            Progress: 367635032/455811084   80%    (bytes)
+2014-09-10T07:17:45.062+0800            Progress: 380524665/455811084   83%    (bytes)
+2014-09-10T07:17:48.045+0800            Progress: 393072137/455811084   86%    (bytes)
+2014-09-10T07:17:51.036+0800            Progress: 405651364/455811084   88%    (bytes)
+2014-09-10T07:17:54.010+0800            Progress: 418274708/455811084   91%    (bytes)
+2014-09-10T07:17:59.974+0800            Progress: 424844933/455811084   93%    (bytes)
+2014-09-10T07:18:02.004+0800            Progress: 432714365/455811084   94%    (bytes)
+2014-09-10T07:18:05.067+0800            Progress: 444890810/455811084   97%    (bytes)
+1297325 objects found
+2014-09-10T07:18:07.695+0800    Creating index: { key: { _id: 1 }, ns: "companyDB.message", name: "_id_" }
+2014-09-10T07:18:07.902+0800 ./data/backup/dump/uc/userpic.files.bson
+2014-09-10T07:18:07.902+0800    going into namespace [companyDB.userpic.files]
+1256 objects found
+2014-09-10T07:18:07.928+0800    Creating index: { key: { _id: 1 }, ns: "companyDB.userpic.files", name: "_id_" }
+2014-09-10T07:18:08.001+0800    Creating index: { key: { filename: 1, uploadDate: 1 }, ns: "companyDB.userpic.files", name: "filename_1_uploadDate_1" }
+2014-09-10T07:18:08.013+0800 ./data/backup/dump/uc/votehistory.bson
+2014-09-10T07:18:08.013+0800    going into namespace [companyDB.votehistory]
+264 objects found
+2014-09-10T07:18:08.021+0800    Creating index: { key: { _id: 1 }, ns: "companyDB.votehistory", name: "_id_" }
+2014-09-10T07:18:08.036+0800 ./data/backup/dump/uc/notify.bson
+2014-09-10T07:18:08.036+0800    going into namespace [companyDB.notify]
+2014-09-10T07:18:11.032+0800            Progress: 17742796/500049993    3%     (bytes)
+2014-09-10T07:18:14.051+0800            Progress: 35123508/500049993    7%     (bytes)
+2014-09-10T07:18:17.002+0800            Progress: 51477344/500049993    10%    (bytes)
+2014-09-10T07:18:20.044+0800            Progress: 67733260/500049993    13%    (bytes)
+2014-09-10T07:18:23.049+0800            Progress: 85062704/500049993    17%    (bytes)
+2014-09-10T07:18:26.098+0800            Progress: 95196273/500049993    19%    (bytes)
+2014-09-10T07:18:29.006+0800            Progress: 111849656/500049993   22%    (bytes)
+2014-09-10T07:18:32.000+0800            Progress: 128154345/500049993   25%    (bytes)
+2014-09-10T07:18:35.059+0800            Progress: 143995148/500049993   28%    (bytes)
+2014-09-10T07:18:38.062+0800            Progress: 160260507/500049993   32%    (bytes)
+2014-09-10T07:18:41.032+0800            Progress: 175603984/500049993   35%    (bytes)
+2014-09-10T07:18:44.000+0800            Progress: 191913256/500049993   38%    (bytes)
+2014-09-10T07:18:50.645+0800            Progress: 199759056/500049993   39%    (bytes)
+2014-09-10T07:18:53.030+0800            Progress: 211330456/500049993   42%    (bytes)
+2014-09-10T07:18:56.000+0800            Progress: 227890453/500049993   45%    (bytes)
+2014-09-10T07:18:59.004+0800            Progress: 245060874/500049993   49%    (bytes)
+2014-09-10T07:19:02.024+0800            Progress: 261422495/500049993   52%    (bytes)
+2014-09-10T07:19:05.033+0800            Progress: 278339659/500049993   55%    (bytes)
+2014-09-10T07:19:08.009+0800            Progress: 294903615/500049993   58%    (bytes)
+2014-09-10T07:19:11.030+0800            Progress: 312884481/500049993   62%    (bytes)
+2014-09-10T07:19:14.024+0800            Progress: 329856781/500049993   65%    (bytes)
+2014-09-10T07:19:17.066+0800            Progress: 347398155/500049993   69%    (bytes)
+2014-09-10T07:19:20.040+0800            Progress: 364425488/500049993   72%    (bytes)
+2014-09-10T07:19:26.625+0800            Progress: 373401286/500049993   74%    (bytes)
+2014-09-10T07:19:29.031+0800            Progress: 385815986/500049993   77%    (bytes)
+2014-09-10T07:19:32.023+0800            Progress: 403451755/500049993   80%    (bytes)
+2014-09-10T07:19:35.012+0800            Progress: 421070432/500049993   84%    (bytes)
+2014-09-10T07:19:38.020+0800            Progress: 437692055/500049993   87%    (bytes)
+2014-09-10T07:19:41.062+0800            Progress: 454978740/500049993   90%    (bytes)
+2014-09-10T07:19:44.027+0800            Progress: 471903446/500049993   94%    (bytes)
+2014-09-10T07:19:47.014+0800            Progress: 488572628/500049993   97%    (bytes)
+981224 objects found
+2014-09-10T07:19:49.127+0800    Creating index: { key: { _id: 1 }, ns: "companyDB.notify", name: "_id_" }
+2014-09-10T07:19:49.293+0800    Creating index: { key: { tonotify: 1, notify_date: -1 }, ns: "companyDB.notify", name: "tonotify_1_notify_date_-1" }
+2014-09-10T07:20:12.853+0800 ./data/backup/dump/uc/pmail.bson
+2014-09-10T07:20:12.853+0800    going into namespace [companyDB.pmail]
+45 objects found
+2014-09-10T07:20:12.880+0800    Creating index: { key: { _id: 1 }, ns: "companyDB.pmail", name: "_id_" }
+2014-09-10T07:20:13.196+0800 ./data/backup/dump/uc/system.profile.bson
+2014-09-10T07:20:13.196+0800     skipping system.profile.bson
+2014-09-10T07:20:13.196+0800 ./data/backup/dump/uc/department.bson
+2014-09-10T07:20:13.196+0800    going into namespace [companyDB.department]
+90 objects found
+2014-09-10T07:20:13.227+0800    Creating index: { key: { _id: 1 }, ns: "companyDB.department", name: "_id_" }
+2014-09-10T07:20:13.231+0800 ./data/backup/dump/uc/chatsession.bson
+2014-09-10T07:20:13.231+0800    going into namespace [companyDB.chatsession]
+10007 objects found
+2014-09-10T07:20:13.799+0800    Creating index: { key: { _id: 1 }, ns: "companyDB.chatsession", name: "_id_" }
+2014-09-10T07:20:13.996+0800    Creating index: { key: { member: 1, last_update: -1 }, ns: "companyDB.chatsession", name: "member_1_last_update_-1" }
+2014-09-10T07:20:14.245+0800 ./data/backup/dump/uc/msgtempfile.files.bson
+2014-09-10T07:20:14.245+0800    going into namespace [companyDB.msgtempfile.files]
+2014-09-10T07:20:17.070+0800            Progress: 8931000/8944053       99%    (bytes)
+39057 objects found
+2014-09-10T07:20:17.070+0800    Creating index: { key: { _id: 1 }, ns: "companyDB.msgtempfile.files", name: "_id_" }
+2014-09-10T07:20:17.297+0800    Creating index: { key: { filename: 1, uploadDate: 1 }, ns: "companyDB.msgtempfile.files", name: "filename_1_uploadDate_1" }
+2014-09-10T07:20:17.749+0800 ./data/backup/dump/uc/c5user.bson
+2014-09-10T07:20:17.749+0800    going into namespace [companyDB.c5user]
+1609 objects found
+2014-09-10T07:20:17.769+0800    Creating index: { key: { _id: 1 }, ns: "companyDB.c5user", name: "_id_" }
+2014-09-10T07:20:17.907+0800    Creating index: { key: { name: 1 }, ns: "companyDB.c5user", name: "name_1" }
+2014-09-10T07:20:17.921+0800    Creating index: { key: { state: 1 }, ns: "companyDB.c5user", name: "state_1" }
+2014-09-10T07:20:17.936+0800 ./data/backup/dump/uc/c5group.bson
+2014-09-10T07:20:17.936+0800    going into namespace [companyDB.c5group]
+161 objects found
+2014-09-10T07:20:17.942+0800    Creating index: { key: { _id: 1 }, ns: "companyDB.c5group", name: "_id_" }
+2014-09-10T07:20:17.953+0800 ./data/backup/dump/uc/userpic.chunks.bson
+2014-09-10T07:20:17.953+0800    going into namespace [companyDB.userpic.chunks]
+1256 objects found
+2014-09-10T07:20:18.135+0800    Creating index: { key: { _id: 1 }, ns: "companyDB.userpic.chunks", name: "_id_" }
+2014-09-10T07:20:18.159+0800    Creating index: { key: { files_id: 1, n: 1 }, unique: true, ns: "companyDB.userpic.chunks", name: "files_id_1_n_1" }
+2014-09-10T07:20:18.171+0800 ./data/backup/dump/uc/msgtempfile.chunks.bson
+2014-09-10T07:20:18.171+0800    going into namespace [companyDB.msgtempfile.chunks]
+2014-09-10T07:20:21.110+0800            Progress: 128543283/759422763   16%    (bytes)
+2014-09-10T07:20:24.138+0800            Progress: 206696491/759422763   27%    (bytes)
+2014-09-10T07:20:27.111+0800            Progress: 276584634/759422763   36%    (bytes)
+2014-09-10T07:20:32.687+0800            Progress: 301575770/759422763   39%    (bytes)
+2014-09-10T07:20:35.060+0800            Progress: 420836972/759422763   55%    (bytes)
+2014-09-10T07:20:42.132+0800            Progress: 551822957/759422763   72%    (bytes)
+2014-09-10T07:20:45.071+0800            Progress: 694929247/759422763   91%    (bytes)
+2014-09-10T07:20:50.439+0800            Progress: 745826480/759422763   98%    (bytes)
+39085 objects found
+2014-09-10T07:20:50.756+0800    Creating index: { key: { _id: 1 }, ns: "companyDB.msgtempfile.chunks", name: "_id_" }
+2014-09-10T07:20:50.765+0800    Creating index: { key: { files_id: 1, n: 1 }, unique: true, ns: "companyDB.msgtempfile.chunks", name: "files_id_1_n_1" }
+2014-09-10T07:20:51.305+0800 ./data/backup/dump/uc/shareforder.chunks.bson
+2014-09-10T07:20:51.306+0800    going into namespace [companyDB.shareforder.chunks]
+196 objects found
+2014-09-10T07:20:51.876+0800    Creating index: { key: { _id: 1 }, ns: "companyDB.shareforder.chunks", name: "_id_" }
+2014-09-10T07:20:51.885+0800    Creating index: { key: { files_id: 1, n: 1 }, unique: true, ns: "companyDB.shareforder.chunks", name: "files_id_1_n_1" }
+You have new mail in /var/spool/mail/v8bs
+[v8bs@localhost mongodb-linux-x86_64-2.6.4]$ mongo -port 28010
+-bash: mongo: command not found
+You have new mail in /var/spool/mail/v8bs
+[v8bs@localhost mongodb-linux-x86_64-2.6.4]$ bin/mongo -port 28010
+MongoDB shell version: 2.6.4
+connecting to: 127.0.0.1:28010/test
+> s\
+2014-09-10T07:31:34.504+0800 SyntaxError: Unexpected token ILLEGAL
+error2:SyntaxError: Unexpected token ILLEGAL
+> use test
+switched to db test
+> time()
+2014-09-10T07:31:51.785+0800 ReferenceError: time is not defined
+> for(i=0;i<10000;i++){
+... db.school.insert({name:"chi"+i,age:i});
+... }
+WriteResult({ "nInserted" : 1 })
+> db.stats()
+{
+        "db" : "test",
+        "collections" : 3,
+        "objects" : 10004,
+        "avgObjSize" : 111.98080767692923,
+        "dataSize" : 1120256,
+        "storageSize" : 2809856,
+        "numExtents" : 7,
+        "indexes" : 1,
+        "indexSize" : 335216,
+        "fileSize" : 16777216,
+        "nsSizeMB" : 16,
+        "dataFileVersion" : {
+                "major" : 4,
+                "minor" : 5
+        },
+        "extentFreeList" : {
+                "num" : 0,
+                "totalSize" : 0
+        },
+        "ok" : 1
+}
+> db.stats(1024*1024)
+{
+        "db" : "test",
+        "collections" : 3,
+        "objects" : 10004,
+        "avgObjSize" : 111.98080767692923,
+        "dataSize" : 1,
+        "storageSize" : 2,
+        "numExtents" : 7,
+        "indexes" : 1,
+        "indexSize" : 0,
+        "fileSize" : 16,
+        "nsSizeMB" : 16,
+        "dataFileVersion" : {
+                "major" : 4,
+                "minor" : 5
+        },
+        "extentFreeList" : {
+                "num" : 0,
+                "totalSize" : 0
+        },
+        "ok" : 1
+}
+> for(i=0;i<50000;i++){ db.school.insert({name:"chi"+i,age:i}); }
+WriteResult({ "nInserted" : 1 })
+> db.stats(1024*1024)
+{
+        "db" : "test",
+        "collections" : 3,
+        "objects" : 60004,
+        "avgObjSize" : 111.9968002133191,
+        "dataSize" : 6,
+        "storageSize" : 10,
+        "numExtents" : 8,
+        "indexes" : 1,
+        "indexSize" : 1,
+        "fileSize" : 16,
+        "nsSizeMB" : 16,
+        "dataFileVersion" : {
+                "major" : 4,
+                "minor" : 5
+        },
+        "extentFreeList" : {
+                "num" : 0,
+                "totalSize" : 0
+        },
+        "ok" : 1
+}
+> db.school.stats(1024*1024)
+{
+        "ns" : "test.school",
+        "count" : 60000,
+        "size" : 6,
+        "avgObjSize" : 112,
+        "storageSize" : 10,
+        "numExtents" : 6,
+        "nindexes" : 1,
+        "lastExtentSize" : 8,
+        "paddingFactor" : 1,
+        "systemFlags" : 1,
+        "userFlags" : 1,
+        "totalIndexSize" : 1,
+        "indexSizes" : {
+                "_id_" : 1
+        },
+        "ok" : 1
+}
+> for(i=0;i<30000;i++){ db.school.insert({name:"chi"+i,age:i}); }
+WriteResult({ "nInserted" : 1 })
+> db.stats(1024*1024)
+{
+        "db" : "test",
+        "collections" : 3,
+        "objects" : 90004,
+        "avgObjSize" : 111.99786676147727,
+        "dataSize" : 9,
+        "storageSize" : 21,
+        "numExtents" : 9,
+        "indexes" : 1,
+        "indexSize" : 2,
+        "fileSize" : 48,
+        "nsSizeMB" : 16,
+        "dataFileVersion" : {
+                "major" : 4,
+                "minor" : 5
+        },
+        "extentFreeList" : {
+                "num" : 0,
+                "totalSize" : 0
+        },
+        "ok" : 1
+}
+> for(i=0;i<100000;i++){ db.school.insert({name:"chi"+i,age:i}); }
+WriteResult({ "nInserted" : 1 })
+> db.stats(1024*1024)
+{
+        "db" : "test",
+        "collections" : 3,
+        "objects" : 190004,
+        "avgObjSize" : 111.998989494958,
+        "dataSize" : 20,
+        "storageSize" : 36,
+        "numExtents" : 10,
+        "indexes" : 1,
+        "indexSize" : 5,
+        "fileSize" : 112,
+        "nsSizeMB" : 16,
+        "dataFileVersion" : {
+                "major" : 4,
+                "minor" : 5
+        },
+        "extentFreeList" : {
+                "num" : 0,
+                "totalSize" : 0
+        },
+        "ok" : 1
+}
+> 
+
+ogpath=./data/log/20140910log.txt -smallfiles -port 28010 --fork --logappend
+about to fork child process, waiting until server is ready for connections.
+forked process: 26982
+child process started successfully, parent exiting
+You have new mail in /var/spool/mail/v8bs
+[v8bs@localhost mongodb-linux-x86_64-2.6.4]$  bin/mongod -dbpath ./data/testDB2 -logpath=./data/log/20140911log.txt -smallfiles -port 28010 --fork --logappend
+about to fork child process, waiting until server is ready for connections.
+forked process: 26995
+child process started successfully, parent exiting
+[v8bs@localhost mongodb-linux-x86_64-2.6.4]$  bin/mongod -dbpath ./data/testDB -logpath=./data/log/20140910log.txt -smallfiles -port 28011 --fork --logappend
+about to fork child process, waiting until server is ready for connections.
+forked process: 27064
+ERROR: child process failed, exited with error number 100
+You have new mail in /var/spool/mail/v8bs
+[v8bs@localhost mongodb-linux-x86_64-2.6.4]$  bin/mongod -dbpath ./data/testDB -logpath=./data/log/20140910log.txt -smallfiles -port 28010 --fork --logappend
+about to fork child process, waiting until server is ready for connections.
+forked process: 27137
+child process started successfully, parent exiting
+You have new mail in /var/spool/mail/v8bs
+[v8bs@localhost mongodb-linux-x86_64-2.6.4]$ bin/mongod -dbpath ./data/testDB2 -logpath=./data/log/20140911log.txt -smallfiles -port 28011 --fork --logappend
+about to fork child process, waiting until server is ready for connections.
+forked process: 27150
+child process started successfully, parent exiting
+[v8bs@localhost mongodb-linux-x86_64-2.6.4]$ bin/mongorestore -d companyDB ./data/backup/dump/uc -port 28010
+connected to: 127.0.0.1:28010
+2014-09-10T07:15:59.915+0800 ./data/backup/dump/uc/shareforder.files.bson
+2014-09-10T07:15:59.916+0800    going into namespace [companyDB.shareforder.files]
+94 objects found
+2014-09-10T07:15:59.939+0800    Creating index: { key: { _id: 1 }, ns: "companyDB.shareforder.files", name: "_id_" }
+2014-09-10T07:16:00.576+0800    Creating index: { key: { filename: 1, uploadDate: 1 }, ns: "companyDB.shareforder.files", name: "filename_1_uploadDate_1" }
+2014-09-10T07:16:00.578+0800 ./data/backup/dump/uc/pmailreply.bson
+2014-09-10T07:16:00.578+0800    going into namespace [companyDB.pmailreply]
+14 objects found
+2014-09-10T07:16:00.588+0800    Creating index: { key: { _id: 1 }, ns: "companyDB.pmailreply", name: "_id_" }
+2014-09-10T07:16:00.589+0800 ./data/backup/dump/uc/message.bson
+2014-09-10T07:16:00.589+0800    going into namespace [companyDB.message]
+2014-09-10T07:16:03.093+0800            Progress: 8299862/455811084     1%     (bytes)
+2014-09-10T07:16:06.073+0800            Progress: 18327797/455811084    4%     (bytes)
+2014-09-10T07:16:09.040+0800            Progress: 31249708/455811084    6%     (bytes)
+2014-09-10T07:16:12.051+0800            Progress: 43201388/455811084    9%     (bytes)
+2014-09-10T07:16:15.027+0800            Progress: 55717716/455811084    12%    (bytes)
+2014-09-10T07:16:18.006+0800            Progress: 62660200/455811084    13%    (bytes)
+2014-09-10T07:16:21.054+0800            Progress: 75207772/455811084    16%    (bytes)
+2014-09-10T07:16:24.009+0800            Progress: 87087424/455811084    19%    (bytes)
+2014-09-10T07:16:27.033+0800            Progress: 98090011/455811084    21%    (bytes)
+2014-09-10T07:16:30.047+0800            Progress: 110705188/455811084   24%    (bytes)
+2014-09-10T07:16:35.829+0800            Progress: 118641188/455811084   26%    (bytes)
+2014-09-10T07:16:38.035+0800            Progress: 127535808/455811084   27%    (bytes)
+2014-09-10T07:16:41.033+0800            Progress: 140124429/455811084   30%    (bytes)
+2014-09-10T07:16:44.049+0800            Progress: 153080562/455811084   33%    (bytes)
+2014-09-10T07:16:47.042+0800            Progress: 165694295/455811084   36%    (bytes)
+2014-09-10T07:16:50.014+0800            Progress: 177962699/455811084   39%    (bytes)
+2014-09-10T07:16:53.058+0800            Progress: 190235692/455811084   41%    (bytes)
+2014-09-10T07:16:56.040+0800            Progress: 202164127/455811084   44%    (bytes)
+2014-09-10T07:16:59.008+0800            Progress: 214051578/455811084   46%    (bytes)
+2014-09-10T07:17:02.033+0800            Progress: 226233321/455811084   49%    (bytes)
+2014-09-10T07:17:06.302+0800            Progress: 226901002/455811084   49%    (bytes)
+2014-09-10T07:17:09.022+0800            Progress: 237474442/455811084   52%    (bytes)
+2014-09-10T07:17:12.004+0800            Progress: 249002150/455811084   54%    (bytes)
+2014-09-10T07:17:15.018+0800            Progress: 261582596/455811084   57%    (bytes)
+2014-09-10T07:17:18.002+0800            Progress: 273460050/455811084   59%    (bytes)
+2014-09-10T07:17:21.000+0800            Progress: 285542336/455811084   62%    (bytes)
+2014-09-10T07:17:24.005+0800            Progress: 296888405/455811084   65%    (bytes)
+2014-09-10T07:17:27.025+0800            Progress: 307708480/455811084   67%    (bytes)
+2014-09-10T07:17:30.018+0800            Progress: 320015439/455811084   70%    (bytes)
+2014-09-10T07:17:33.041+0800            Progress: 331931061/455811084   72%    (bytes)
+2014-09-10T07:17:36.006+0800            Progress: 343812952/455811084   75%    (bytes)
+2014-09-10T07:17:39.018+0800            Progress: 355391089/455811084   77%    (bytes)
+2014-09-10T07:17:42.011+0800            Progress: 367635032/455811084   80%    (bytes)
+2014-09-10T07:17:45.062+0800            Progress: 380524665/455811084   83%    (bytes)
+2014-09-10T07:17:48.045+0800            Progress: 393072137/455811084   86%    (bytes)
+2014-09-10T07:17:51.036+0800            Progress: 405651364/455811084   88%    (bytes)
+2014-09-10T07:17:54.010+0800            Progress: 418274708/455811084   91%    (bytes)
+2014-09-10T07:17:59.974+0800            Progress: 424844933/455811084   93%    (bytes)
+2014-09-10T07:18:02.004+0800            Progress: 432714365/455811084   94%    (bytes)
+2014-09-10T07:18:05.067+0800            Progress: 444890810/455811084   97%    (bytes)
+1297325 objects found
+2014-09-10T07:18:07.695+0800    Creating index: { key: { _id: 1 }, ns: "companyDB.message", name: "_id_" }
+2014-09-10T07:18:07.902+0800 ./data/backup/dump/uc/userpic.files.bson
+2014-09-10T07:18:07.902+0800    going into namespace [companyDB.userpic.files]
+1256 objects found
+2014-09-10T07:18:07.928+0800    Creating index: { key: { _id: 1 }, ns: "companyDB.userpic.files", name: "_id_" }
+2014-09-10T07:18:08.001+0800    Creating index: { key: { filename: 1, uploadDate: 1 }, ns: "companyDB.userpic.files", name: "filename_1_uploadDate_1" }
+2014-09-10T07:18:08.013+0800 ./data/backup/dump/uc/votehistory.bson
+2014-09-10T07:18:08.013+0800    going into namespace [companyDB.votehistory]
+264 objects found
+2014-09-10T07:18:08.021+0800    Creating index: { key: { _id: 1 }, ns: "companyDB.votehistory", name: "_id_" }
+2014-09-10T07:18:08.036+0800 ./data/backup/dump/uc/notify.bson
+2014-09-10T07:18:08.036+0800    going into namespace [companyDB.notify]
+2014-09-10T07:18:11.032+0800            Progress: 17742796/500049993    3%     (bytes)
+2014-09-10T07:18:14.051+0800            Progress: 35123508/500049993    7%     (bytes)
+2014-09-10T07:18:17.002+0800            Progress: 51477344/500049993    10%    (bytes)
+2014-09-10T07:18:20.044+0800            Progress: 67733260/500049993    13%    (bytes)
+2014-09-10T07:18:23.049+0800            Progress: 85062704/500049993    17%    (bytes)
+2014-09-10T07:18:26.098+0800            Progress: 95196273/500049993    19%    (bytes)
+2014-09-10T07:18:29.006+0800            Progress: 111849656/500049993   22%    (bytes)
+2014-09-10T07:18:32.000+0800            Progress: 128154345/500049993   25%    (bytes)
+2014-09-10T07:18:35.059+0800            Progress: 143995148/500049993   28%    (bytes)
+2014-09-10T07:18:38.062+0800            Progress: 160260507/500049993   32%    (bytes)
+2014-09-10T07:18:41.032+0800            Progress: 175603984/500049993   35%    (bytes)
+2014-09-10T07:18:44.000+0800            Progress: 191913256/500049993   38%    (bytes)
+2014-09-10T07:18:50.645+0800            Progress: 199759056/500049993   39%    (bytes)
+2014-09-10T07:18:53.030+0800            Progress: 211330456/500049993   42%    (bytes)
+2014-09-10T07:18:56.000+0800            Progress: 227890453/500049993   45%    (bytes)
+2014-09-10T07:18:59.004+0800            Progress: 245060874/500049993   49%    (bytes)
+2014-09-10T07:19:02.024+0800            Progress: 261422495/500049993   52%    (bytes)
+2014-09-10T07:19:05.033+0800            Progress: 278339659/500049993   55%    (bytes)
+2014-09-10T07:19:08.009+0800            Progress: 294903615/500049993   58%    (bytes)
+2014-09-10T07:19:11.030+0800            Progress: 312884481/500049993   62%    (bytes)
+2014-09-10T07:19:14.024+0800            Progress: 329856781/500049993   65%    (bytes)
+2014-09-10T07:19:17.066+0800            Progress: 347398155/500049993   69%    (bytes)
+2014-09-10T07:19:20.040+0800            Progress: 364425488/500049993   72%    (bytes)
+2014-09-10T07:19:26.625+0800            Progress: 373401286/500049993   74%    (bytes)
+2014-09-10T07:19:29.031+0800            Progress: 385815986/500049993   77%    (bytes)
+2014-09-10T07:19:32.023+0800            Progress: 403451755/500049993   80%    (bytes)
+2014-09-10T07:19:35.012+0800            Progress: 421070432/500049993   84%    (bytes)
+2014-09-10T07:19:38.020+0800            Progress: 437692055/500049993   87%    (bytes)
+2014-09-10T07:19:41.062+0800            Progress: 454978740/500049993   90%    (bytes)
+2014-09-10T07:19:44.027+0800            Progress: 471903446/500049993   94%    (bytes)
+2014-09-10T07:19:47.014+0800            Progress: 488572628/500049993   97%    (bytes)
+981224 objects found
+2014-09-10T07:19:49.127+0800    Creating index: { key: { _id: 1 }, ns: "companyDB.notify", name: "_id_" }
+2014-09-10T07:19:49.293+0800    Creating index: { key: { tonotify: 1, notify_date: -1 }, ns: "companyDB.notify", name: "tonotify_1_notify_date_-1" }
+2014-09-10T07:20:12.853+0800 ./data/backup/dump/uc/pmail.bson
+2014-09-10T07:20:12.853+0800    going into namespace [companyDB.pmail]
+45 objects found
+2014-09-10T07:20:12.880+0800    Creating index: { key: { _id: 1 }, ns: "companyDB.pmail", name: "_id_" }
+2014-09-10T07:20:13.196+0800 ./data/backup/dump/uc/system.profile.bson
+2014-09-10T07:20:13.196+0800     skipping system.profile.bson
+2014-09-10T07:20:13.196+0800 ./data/backup/dump/uc/department.bson
+2014-09-10T07:20:13.196+0800    going into namespace [companyDB.department]
+90 objects found
+2014-09-10T07:20:13.227+0800    Creating index: { key: { _id: 1 }, ns: "companyDB.department", name: "_id_" }
+2014-09-10T07:20:13.231+0800 ./data/backup/dump/uc/chatsession.bson
+2014-09-10T07:20:13.231+0800    going into namespace [companyDB.chatsession]
+10007 objects found
+2014-09-10T07:20:13.799+0800    Creating index: { key: { _id: 1 }, ns: "companyDB.chatsession", name: "_id_" }
+2014-09-10T07:20:13.996+0800    Creating index: { key: { member: 1, last_update: -1 }, ns: "companyDB.chatsession", name: "member_1_last_update_-1" }
+2014-09-10T07:20:14.245+0800 ./data/backup/dump/uc/msgtempfile.files.bson
+2014-09-10T07:20:14.245+0800    going into namespace [companyDB.msgtempfile.files]
+2014-09-10T07:20:17.070+0800            Progress: 8931000/8944053       99%    (bytes)
+39057 objects found
+2014-09-10T07:20:17.070+0800    Creating index: { key: { _id: 1 }, ns: "companyDB.msgtempfile.files", name: "_id_" }
+2014-09-10T07:20:17.297+0800    Creating index: { key: { filename: 1, uploadDate: 1 }, ns: "companyDB.msgtempfile.files", name: "filename_1_uploadDate_1" }
+2014-09-10T07:20:17.749+0800 ./data/backup/dump/uc/c5user.bson
+2014-09-10T07:20:17.749+0800    going into namespace [companyDB.c5user]
+1609 objects found
+2014-09-10T07:20:17.769+0800    Creating index: { key: { _id: 1 }, ns: "companyDB.c5user", name: "_id_" }
+2014-09-10T07:20:17.907+0800    Creating index: { key: { name: 1 }, ns: "companyDB.c5user", name: "name_1" }
+2014-09-10T07:20:17.921+0800    Creating index: { key: { state: 1 }, ns: "companyDB.c5user", name: "state_1" }
+2014-09-10T07:20:17.936+0800 ./data/backup/dump/uc/c5group.bson
+2014-09-10T07:20:17.936+0800    going into namespace [companyDB.c5group]
+161 objects found
+2014-09-10T07:20:17.942+0800    Creating index: { key: { _id: 1 }, ns: "companyDB.c5group", name: "_id_" }
+2014-09-10T07:20:17.953+0800 ./data/backup/dump/uc/userpic.chunks.bson
+2014-09-10T07:20:17.953+0800    going into namespace [companyDB.userpic.chunks]
+1256 objects found
+2014-09-10T07:20:18.135+0800    Creating index: { key: { _id: 1 }, ns: "companyDB.userpic.chunks", name: "_id_" }
+2014-09-10T07:20:18.159+0800    Creating index: { key: { files_id: 1, n: 1 }, unique: true, ns: "companyDB.userpic.chunks", name: "files_id_1_n_1" }
+2014-09-10T07:20:18.171+0800 ./data/backup/dump/uc/msgtempfile.chunks.bson
+2014-09-10T07:20:18.171+0800    going into namespace [companyDB.msgtempfile.chunks]
+2014-09-10T07:20:21.110+0800            Progress: 128543283/759422763   16%    (bytes)
+2014-09-10T07:20:24.138+0800            Progress: 206696491/759422763   27%    (bytes)
+2014-09-10T07:20:27.111+0800            Progress: 276584634/759422763   36%    (bytes)
+2014-09-10T07:20:32.687+0800            Progress: 301575770/759422763   39%    (bytes)
+2014-09-10T07:20:35.060+0800            Progress: 420836972/759422763   55%    (bytes)
+2014-09-10T07:20:42.132+0800            Progress: 551822957/759422763   72%    (bytes)
+2014-09-10T07:20:45.071+0800            Progress: 694929247/759422763   91%    (bytes)
+2014-09-10T07:20:50.439+0800            Progress: 745826480/759422763   98%    (bytes)
+39085 objects found
+2014-09-10T07:20:50.756+0800    Creating index: { key: { _id: 1 }, ns: "companyDB.msgtempfile.chunks", name: "_id_" }
+2014-09-10T07:20:50.765+0800    Creating index: { key: { files_id: 1, n: 1 }, unique: true, ns: "companyDB.msgtempfile.chunks", name: "files_id_1_n_1" }
+2014-09-10T07:20:51.305+0800 ./data/backup/dump/uc/shareforder.chunks.bson
+2014-09-10T07:20:51.306+0800    going into namespace [companyDB.shareforder.chunks]
+196 objects found
+2014-09-10T07:20:51.876+0800    Creating index: { key: { _id: 1 }, ns: "companyDB.shareforder.chunks", name: "_id_" }
+2014-09-10T07:20:51.885+0800    Creating index: { key: { files_id: 1, n: 1 }, unique: true, ns: "companyDB.shareforder.chunks", name: "files_id_1_n_1" }
+You have new mail in /var/spool/mail/v8bs
+[v8bs@localhost mongodb-linux-x86_64-2.6.4]$ mongo -port 28010
+-bash: mongo: command not found
+You have new mail in /var/spool/mail/v8bs
+[v8bs@localhost mongodb-linux-x86_64-2.6.4]$ bin/mongo -port 28010
+MongoDB shell version: 2.6.4
+connecting to: 127.0.0.1:28010/test
+> s\
+2014-09-10T07:31:34.504+0800 SyntaxError: Unexpected token ILLEGAL
+error2:SyntaxError: Unexpected token ILLEGAL
+> use test
+switched to db test
+> time()
+2014-09-10T07:31:51.785+0800 ReferenceError: time is not defined
+> for(i=0;i<10000;i++){
+... db.school.insert({name:"chi"+i,age:i});
+... }
+WriteResult({ "nInserted" : 1 })
+> db.stats()
+{
+        "db" : "test",
+        "collections" : 3,
+        "objects" : 10004,
+        "avgObjSize" : 111.98080767692923,
+        "dataSize" : 1120256,
+        "storageSize" : 2809856,
+        "numExtents" : 7,
+        "indexes" : 1,
+        "indexSize" : 335216,
+        "fileSize" : 16777216,
+        "nsSizeMB" : 16,
+        "dataFileVersion" : {
+                "major" : 4,
+                "minor" : 5
+        },
+        "extentFreeList" : {
+                "num" : 0,
+                "totalSize" : 0
+        },
+        "ok" : 1
+}
+> db.stats(1024*1024)
+{
+        "db" : "test",
+        "collections" : 3,
+        "objects" : 10004,
+        "avgObjSize" : 111.98080767692923,
+        "dataSize" : 1,
+        "storageSize" : 2,
+        "numExtents" : 7,
+        "indexes" : 1,
+        "indexSize" : 0,
+        "fileSize" : 16,
+        "nsSizeMB" : 16,
+        "dataFileVersion" : {
+                "major" : 4,
+                "minor" : 5
+        },
+        "extentFreeList" : {
+                "num" : 0,
+                "totalSize" : 0
+        },
+        "ok" : 1
+}
+> for(i=0;i<50000;i++){ db.school.insert({name:"chi"+i,age:i}); }
+WriteResult({ "nInserted" : 1 })
+> db.stats(1024*1024)
+{
+        "db" : "test",
+        "collections" : 3,
+        "objects" : 60004,
+        "avgObjSize" : 111.9968002133191,
+        "dataSize" : 6,
+        "storageSize" : 10,
+        "numExtents" : 8,
+        "indexes" : 1,
+        "indexSize" : 1,
+        "fileSize" : 16,
+        "nsSizeMB" : 16,
+        "dataFileVersion" : {
+                "major" : 4,
+                "minor" : 5
+        },
+        "extentFreeList" : {
+                "num" : 0,
+                "totalSize" : 0
+        },
+        "ok" : 1
+}
+> db.school.stats(1024*1024)
+{
+        "ns" : "test.school",
+        "count" : 60000,
+        "size" : 6,
+        "avgObjSize" : 112,
+        "storageSize" : 10,
+        "numExtents" : 6,
+        "nindexes" : 1,
+        "lastExtentSize" : 8,
+        "paddingFactor" : 1,
+        "systemFlags" : 1,
+        "userFlags" : 1,
+        "totalIndexSize" : 1,
+        "indexSizes" : {
+                "_id_" : 1
+        },
+        "ok" : 1
+}
+> for(i=0;i<30000;i++){ db.school.insert({name:"chi"+i,age:i}); }
+WriteResult({ "nInserted" : 1 })
+> db.stats(1024*1024)
+{
+        "db" : "test",
+        "collections" : 3,
+        "objects" : 90004,
+        "avgObjSize" : 111.99786676147727,
+        "dataSize" : 9,
+        "storageSize" : 21,
+        "numExtents" : 9,
+        "indexes" : 1,
+        "indexSize" : 2,
+        "fileSize" : 48,
+        "nsSizeMB" : 16,
+        "dataFileVersion" : {
+                "major" : 4,
+                "minor" : 5
+        },
+        "extentFreeList" : {
+                "num" : 0,
+                "totalSize" : 0
+        },
+        "ok" : 1
+}
+> for(i=0;i<100000;i++){ db.school.insert({name:"chi"+i,age:i}); }
+WriteResult({ "nInserted" : 1 })
+> db.stats(1024*1024)
+{
+        "db" : "test",
+        "collections" : 3,
+        "objects" : 190004,
+        "avgObjSize" : 111.998989494958,
+        "dataSize" : 20,
+        "storageSize" : 36,
+        "numExtents" : 10,
+        "indexes" : 1,
+        "indexSize" : 5,
+        "fileSize" : 112,
+        "nsSizeMB" : 16,
+        "dataFileVersion" : {
+                "major" : 4,
+                "minor" : 5
+        },
+        "extentFreeList" : {
+                "num" : 0,
+                "totalSize" : 0
+        },
+        "ok" : 1
+}
+> for(i=0;i<70000;i++){ db.school.insert({name:"chi"+i,age:i}); }
+WriteResult({ "nInserted" : 1 })
+> db.stats(1024*1024)
+{
+        "db" : "test",
+        "collections" : 3,
+        "objects" : 260004,
+        "avgObjSize" : 111.99926154982231,
+        "dataSize" : 27,
+        "storageSize" : 36,
+        "numExtents" : 10,
+        "indexes" : 1,
+        "indexSize" : 8,
+        "fileSize" : 112,
+        "nsSizeMB" : 16,
+        "dataFileVersion" : {
+                "major" : 4,
+                "minor" : 5
+        },
+        "extentFreeList" : {
+                "num" : 0,
+                "totalSize" : 0
+        },
+        "ok" : 1
+}
+> for(i=0;i<70000;i++){ db.school.insert({name:"chi"+i,age:i}); }
+WriteResult({ "nInserted" : 1 })
+> db.stats(1024*1024)
+{
+        "db" : "test",
+        "collections" : 3,
+        "objects" : 330004,
+        "avgObjSize" : 111.99941818887044,
+        "dataSize" : 35,
+        "storageSize" : 55,
+        "numExtents" : 11,
+        "indexes" : 1,
+        "indexSize" : 10,
+        "fileSize" : 112,
+        "nsSizeMB" : 16,
+        "dataFileVersion" : {
+                "major" : 4,
+                "minor" : 5
+        },
+        "extentFreeList" : {
+                "num" : 0,
+                "totalSize" : 0
+        },
+        "ok" : 1
+}
+> 
+> db.stats(1024*1024)
+{
+        "db" : "test",
+        "collections" : 3,
+        "objects" : 330004,
+        "avgObjSize" : 111.99941818887044,
+        "dataSize" : 35,
+        "storageSize" : 44,
+        "numExtents" : 12,
+        "indexes" : 1,
+        "indexSize" : 9,
+        "fileSize" : 240,
+        "nsSizeMB" : 16,
+        "dataFileVersion" : {
+                "major" : 4,
+                "minor" : 5
+        },
+        "extentFreeList" : {
+                "num" : 8,
+                "totalSize" : 47
+        },
+        "ok" : 1
+}
+
+> db.school.stats(1024*1024)
+{
+        "ns" : "test.school",
+        "count" : 330000,
+        "size" : 35,
+        "avgObjSize" : 112,
+        "storageSize" : 44,
+        "numExtents" : 10,
+        "nindexes" : 1,
+        "lastExtentSize" : 14,
+        "paddingFactor" : 1,
+        "systemFlags" : 0,
+        "userFlags" : 1,
+        "totalIndexSize" : 9,
+        "indexSizes" : {
+                "_id_" : 9
+        },
+        "ok" : 1
+}
+
+
+> db.stats(1024*1024)
+{
+        "db" : "test",
+        "collections" : 3,
+        "objects" : 330004,
+        "avgObjSize" : 111.99941818887044,
+        "dataSize" : 35,
+        "storageSize" : 55,
+        "numExtents" : 11,
+        "indexes" : 1,
+        "indexSize" : 10,
+        "fileSize" : 240,
+        "nsSizeMB" : 16,
+        "dataFileVersion" : {
+                "major" : 4,
+                "minor" : 5
+        },
+        "extentFreeList" : {
+                "num" : 9,
+                "totalSize" : 36
+        },
+        "ok" : 1
+}
+
+> db.school.stats(1024*1024)
+{
+        "ns" : "test.school",
+        "count" : 330000,
+        "size" : 35,
+        "avgObjSize" : 112,
+        "storageSize" : 55,
+        "numExtents" : 9,
+        "nindexes" : 1,
+        "lastExtentSize" : 19,
+        "paddingFactor" : 1,
+        "systemFlags" : 1,
+        "userFlags" : 1,
+        "totalIndexSize" : 10,
+        "indexSizes" : {
+                "_id_" : 10
+        },
+        "ok" : 1
+}
+

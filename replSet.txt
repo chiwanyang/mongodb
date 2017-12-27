@@ -1,0 +1,24 @@
+replSet
+启动三台mongod服务
+mongod  --port 28010 --dbpath="D:\mongodb\\replData1\db"  --logpath="D:\mongodb\\replData1\log\log.txt" --replSet "rs0"
+
+mongod  --port 28011 --dbpath="D:\mongodb\\replData2\db"  --logpath="D:\mongodb\\replData2\log\log.txt" --replSet "rs0"
+
+mongod  --port 28012 --dbpath="D:\mongodb\\replData3\db"  --logpath="D:\mongodb\\replData3\log\log.txt" --replSet "rs0"
+
+mongo --port 28010
+
+初始化集群信息
+rs.initiate( {
+   _id : "rs0",
+   members: [ { _id : 0, host : "localhost:28010" } ]
+})
+
+查看集群信息
+rs.conf()
+
+增加集群节点
+rs.add("localhost:28011")
+
+在primary节点增加数据后 db.school.insert({name:"beijin"}) 
+可以再second节点查询到，之前要执行语句：rs.slaveOk();
